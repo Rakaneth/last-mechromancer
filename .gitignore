@@ -1,0 +1,11 @@
+.vscode/
+**/[Dd]ebug/
+**/[Dd]ebugPublic/
+**/[Rr]elease/
+**/[Rr]eleases/
+**/[Bb]in/
+**/[Oo]bj/
+**/[Oo]ut/
+**/msbuild.log
+**/msbuild.err
+**/msbuid.wrn
