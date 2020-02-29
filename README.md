@@ -6,8 +6,8 @@
     * [x] `PoweredArmor`
     * [ ] `BlastingWand`
 * [ ] Monsters
-    * [ ] `AtkComponent`
-    * [ ] `DefComponent`
+    * [x] `AtkComponent`
+    * [x] `DefComponent`
     * [ ] `RangeComponent`
 * [ ] UI
     * [ ] Tooltips
