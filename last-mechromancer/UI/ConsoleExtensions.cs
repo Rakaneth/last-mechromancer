@@ -11,5 +11,10 @@ namespace last_mechromancer.UI {
                 cons.Print(cx, 0, caption);
             }
         }
+
+        public static void PrettyPrint(this Console cons, int x, int y, string text) {
+            cons.Cursor.Position = new Microsoft.Xna.Framework.Point(x, y);
+            cons.Cursor.Print(text);
+        }
     }
 }

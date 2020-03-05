@@ -1,5 +1,3 @@
-using GoRogue.Messaging;
-
 namespace last_mechromancer {
     public class MessageBus : GoRogue.Messaging.MessageBus {
         private static MessageBus _instance;
