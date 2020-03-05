@@ -4,6 +4,7 @@ using GoRogue.GameFramework.Components;
 using System;
 using static last_mechromancer.Utils;
 using last_mechromancer.UI;
+using SadConsole;
 
 namespace last_mechromancer.Entity {
 
@@ -169,6 +170,15 @@ namespace last_mechromancer.Entity {
             Name = name;
             BuildID = buildID;
         }
+    }
+
+    public class DrawComponent : IGameObjectComponent {
+        public IGameObject Parent {get; set;}
+        public char Glyph {get; set;}
+        public string FG {get; set;}
+        public string BG {get; set;}
+
+        //public Cell ToCell() => Microsoft.Xna.Framework.Color.
     }
 
 

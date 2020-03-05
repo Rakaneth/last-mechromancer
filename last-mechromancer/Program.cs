@@ -20,7 +20,7 @@ namespace last_mechromancer {
             Global.CurrentScreen = console;
             var msgs = new MessageConsole(20, 15);
             for (int i=0; i<20; i++)
-                MessageBus.Instance.Send(new GameLogMessage($"Message {Utils.Decorate(i.ToString(), "red")}"));
+                MessageBus.Instance.Send(new GameLogMessage($"Message {Utils.Decorate(i.ToString(), "121,107,91")}"));
             console.Children.Add(msgs);
         }
     }
