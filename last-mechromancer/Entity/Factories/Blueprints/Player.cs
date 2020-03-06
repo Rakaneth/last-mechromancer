@@ -19,6 +19,7 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
             foetus.AddComponent(new BatteryComponent());
             foetus.AddComponent(new PoweredSuitComponent());
             foetus.AddComponent(new PlayerComponent());
+            foetus.AddComponent(new DrawComponent());
             return foetus;
 
         }

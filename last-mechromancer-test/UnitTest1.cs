@@ -25,9 +25,14 @@ namespace last_mechromancer_test {
             Assert.That(monster, Is.Not.Null);
 
             var playerName = player.GetComponent<IdentityComponent>().Name;
+            var playerGlyph = player.GetComponent<DrawComponent>().Glyph;
             var ratAtk = monster.GetComponent<IAtkComponent>().PhysAtk.FinalValue;
+            var ratColor = monster.GetComponent<DrawComponent>().FG;
             Assert.That(playerName, Is.EqualTo("Steve"));
+            Assert.That(playerGlyph, Is.EqualTo('@'));
+            Assert.That(ratColor.R, Is.EqualTo(127));
             Assert.That(ratAtk, Is.EqualTo(1));
+            
         }
 
         [Test]

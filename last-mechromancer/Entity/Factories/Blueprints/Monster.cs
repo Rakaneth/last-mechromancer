@@ -6,6 +6,9 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
 
     public class MonsterBlueprintConfig : BlueprintConfig {
         public string Name { get; set; }
+        public char Glyph {get; set;}
+        public string Fg {get; set;}
+        public string Bg {get; set;}
         public int PhysAtk { get; set; }
         public int PhysDef { get; set; }
         public int MystAtk { get; set; }
@@ -16,7 +19,7 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
         public int ColdDef { get; set; }
         public int ShockAtk { get; set; }
         public int ShockDef { get; set; }
-        public int MaxHP { get; set; }
+        public int MaxHp { get; set; }
     }
 
 
@@ -31,8 +34,9 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
                 config.PhysAtk, config.HeatAtk, config.ColdAtk, config.ShockAtk));
             foetus.AddComponent(new BaseDefComponent(config.MystDef,
                 config.PhysDef, config.HeatDef, config.ColdDef, config.ShockDef));
-            foetus.AddComponent(new BaseHealthComponent(config.MaxHP));
+            foetus.AddComponent(new BaseHealthComponent(config.MaxHp));
             foetus.AddComponent(new MonsterComponent());
+            foetus.AddComponent(new DrawComponent(config.Glyph, config.Fg, config.Bg));
             return foetus;
         }
     }

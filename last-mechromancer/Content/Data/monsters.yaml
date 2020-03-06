@@ -1,10 +1,14 @@
 ---
 rat:
   name: rat
+  glyph: r
+  fg: 127,101,91
   physAtk: 1
   physDef: 1
 broken-golem:
-  name: broken golem 
+  name: broken golem
+  glyph: G
+  fg: 111,111,111
   physAtk: 2
   physDef: 1
   shockAtk: 1

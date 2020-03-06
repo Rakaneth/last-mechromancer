@@ -5,6 +5,7 @@ using System;
 using static last_mechromancer.Utils;
 using last_mechromancer.UI;
 using SadConsole;
+using Microsoft.Xna.Framework;
 
 namespace last_mechromancer.Entity {
 
@@ -175,10 +176,15 @@ namespace last_mechromancer.Entity {
     public class DrawComponent : IGameObjectComponent {
         public IGameObject Parent {get; set;}
         public char Glyph {get; set;}
-        public string FG {get; set;}
-        public string BG {get; set;}
+        public Color FG {get; set;}
+        public Color BG {get; set;}
 
-        //public Cell ToCell() => Microsoft.Xna.Framework.Color.
+        public DrawComponent(char glyph='@', string fg="white", string bg="transparent") {
+            bool keepR, keepG, keepB, keepA, dfault;
+            Glyph = glyph;
+            FG = Color.White.FromParser(fg, out keepR, out keepG, out keepB, out keepA, out dfault);
+            BG = Color.White.FromParser(fg, out keepR, out keepG, out keepB, out keepA, out dfault);
+        }
     }
 
 
