@@ -10,17 +10,9 @@ namespace last_mechromancer.Entity.Factories {
         private PlayerFactory _playerFactory;
         private Factory<MonsterBlueprintConfig, IGameObject> _monsterFactory;
         private Dictionary<string, MonsterBlueprintConfig> _blueprints;
-        private static EntityFactory _instance;
         private const string MONSTER_LOG = "FACTORY-MONSTER";
         private bool _monsterTableUpdated;
-        public static EntityFactory Instance {
-            get {
-                if (_instance == null)
-                    _instance = new EntityFactory();
-                return _instance;
-            }
-        }
-        private EntityFactory() {
+        public EntityFactory() {
             _playerFactory = new PlayerFactory();
             _monsterFactory = new Factory<MonsterBlueprintConfig, IGameObject>();
             _monsterFactory.Add(new MonsterBlueprint());
@@ -40,7 +32,7 @@ namespace last_mechromancer.Entity.Factories {
                 Utils.LogError(MONSTER_LOG, "Blueprints not loaded; please load with UpdateBlueprints()");
                 return null;
             }
-            
+
             if (!_blueprints.ContainsKey(buildID)) {
                 Utils.LogError("FACTORY-MONSTER", $"No template for {buildID} found");
                 return null;

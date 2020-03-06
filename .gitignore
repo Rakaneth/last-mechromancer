@@ -9,3 +9,4 @@
 **/msbuild.log
 **/msbuild.err
 **/msbuid.wrn
+**/TestResults/
