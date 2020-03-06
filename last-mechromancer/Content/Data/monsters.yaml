@@ -1,0 +1,10 @@
+---
+rat:
+  name: rat
+  physAtk: 1
+  physDef: 1
+broken-golem:
+  name: broken golem 
+  physAtk: 2
+  physDef: 1
+  shockAtk: 1

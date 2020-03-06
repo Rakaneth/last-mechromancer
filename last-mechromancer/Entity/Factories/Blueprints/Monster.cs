@@ -22,7 +22,7 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
 
 
     public class MonsterBlueprint : IBlueprint<MonsterBlueprintConfig, IGameObject> {
-        public string Id { get; set; }
+        public string Id { get; } = "monster";
 
         public IGameObject Create(MonsterBlueprintConfig config) {
             var foetus = new GameObject(new Coord(0, 0), 2, null, false, false, true);

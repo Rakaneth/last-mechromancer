@@ -17,4 +17,10 @@
     <ProjectReference Include="..\last-mechromancer\last-mechromancer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\last-mechromancer\Content\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
