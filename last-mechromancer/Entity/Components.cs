@@ -120,7 +120,7 @@ namespace last_mechromancer.Entity {
         }
         public int MaxHP { get; set; }
 
-        public bool Alive() => _curHP >= 0;
+        public bool Alive() => _curHP > 0;
         public BaseHealthComponent(int maxHP) {
             MaxHP = maxHP;
             _curHP = maxHP;
