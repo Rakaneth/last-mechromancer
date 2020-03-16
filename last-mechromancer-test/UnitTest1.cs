@@ -46,5 +46,17 @@ namespace last_mechromancer_test {
             var nonexistent = emptyFactory.MakeMonster("nonexistent");
             Assert.That(nonexistent, Is.Null);
         }
+
+        [Test]
+        public void KillThingTest() {
+            var rat = basicFactory.MakeMonster("rat");
+            rat.Kill();
+            var health = rat.GetComponent<IHealthComponent>();
+            Assert.That(health.Alive, Is.False);
+
+            rat.FullRestore();
+            //health = rat.GetComponent<IHealthComponent>();
+            Assert.That(health.Alive, Is.True);
+        }
     }
 }
