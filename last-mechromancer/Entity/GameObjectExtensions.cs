@@ -26,5 +26,16 @@ namespace last_mechromancer.Entity {
                 health.CurHP = health.MaxHP;
             }
         }
+
+        public static string DisplayMessageString(this IGameObject obj) {
+            var display = obj.GetComponent<DrawComponent>();
+            var id = obj.GetComponent<IdentityComponent>();
+            if (id == null)
+                return "Something";
+            else if (display == null)
+                return id.Name;
+            
+            return Utils.Decorate(id.Name, display.FG.ToString(), display.BG.ToString());
+        }
     }
 }

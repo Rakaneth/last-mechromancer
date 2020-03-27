@@ -14,7 +14,7 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
 
         public PlayerBlueprint(string name) : this(name, new GoRogue.Coord(0, 0)) { }
         public override IGameObject Create() {
-            var foetus = new GameObject(_pos, 3, null, false, false, true);
+            var foetus = new GameObject(_pos, 1, null, false, false, true);
             foetus.AddComponent(new IdentityComponent(_name, Id));
             foetus.AddComponent(new BatteryComponent());
             foetus.AddComponent(new PoweredSuitComponent());

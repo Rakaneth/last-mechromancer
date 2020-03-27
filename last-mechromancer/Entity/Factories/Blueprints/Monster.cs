@@ -28,7 +28,7 @@ namespace last_mechromancer.Entity.Factories.Blueprints {
         public string Id { get; } = "monster";
 
         public IGameObject Create(MonsterBlueprintConfig config) {
-            var foetus = new GameObject(new Coord(0, 0), 2, null, false, false, true);
+            var foetus = new GameObject(new Coord(0, 0), 1, null, false, false, true);
             foetus.AddComponent(new IdentityComponent(config.Name, Id));
             foetus.AddComponent(new BaseAtkComponent(config.MystAtk,
                 config.PhysAtk, config.HeatAtk, config.ColdAtk, config.ShockAtk));

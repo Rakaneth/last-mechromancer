@@ -178,12 +178,15 @@ namespace last_mechromancer.Entity {
         public char Glyph {get; set;}
         public Color FG {get; set;}
         public Color BG {get; set;}
+        public SadConsole.Entities.Entity Entity {get;}
 
         public DrawComponent(char glyph='@', string fg="white", string bg="transparent") {
             bool keepR, keepG, keepB, keepA, dfault;
             Glyph = glyph;
             FG = Color.White.FromParser(fg, out keepR, out keepG, out keepB, out keepA, out dfault);
             BG = Color.White.FromParser(fg, out keepR, out keepG, out keepB, out keepA, out dfault);
+            Entity = new SadConsole.Entities.Entity(FG, BG, Glyph);
+            Parent.Moved += (o, args) => Entity.Position = args.NewPosition;
         }
     }
 
