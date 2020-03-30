@@ -1,10 +1,8 @@
-using GoRogue;
 using GoRogue.GameFramework;
 using GoRogue.GameFramework.Components;
-using System;
+using SadConsole.Components;
 using static last_mechromancer.Utils;
 using last_mechromancer.UI;
-using SadConsole;
 using Microsoft.Xna.Framework;
 
 namespace last_mechromancer.Entity {
@@ -186,7 +184,17 @@ namespace last_mechromancer.Entity {
             FG = Color.White.FromParser(fg, out keepR, out keepG, out keepB, out keepA, out dfault);
             BG = Color.White.FromParser(fg, out keepR, out keepG, out keepB, out keepA, out dfault);
             Entity = new SadConsole.Entities.Entity(FG, BG, Glyph);
-            Parent.Moved += (o, args) => Entity.Position = args.NewPosition;
+            Entity.Components.Add(new EntityViewSyncComponent());
+            //Parent.Moved += (o, args) => Entity.Position = args.NewPosition;
+        }
+
+        public DrawComponent(char glyph, Color fg, Color bg) {
+            Glyph = glyph;
+            FG = fg;
+            BG = bg;
+            Entity = new SadConsole.Entities.Entity(FG, BG, Glyph);
+            Entity.Components.Add(new EntityViewSyncComponent());
+            //Parent.Moved += (o, args) => Entity.Position = args.NewPosition;           
         }
     }
 

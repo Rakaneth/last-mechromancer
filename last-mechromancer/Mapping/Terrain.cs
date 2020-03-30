@@ -4,19 +4,20 @@ using GoRogue;
 using SadConsole;
 using Microsoft.Xna.Framework;
 using last_mechromancer.UI;
+using last_mechromancer.Entity;
 
 namespace last_mechromancer.Mapping {
     public class Terrain : GoRogue.GameFramework.GameObject {
         public string Name {get;}
         public char Glyph {get;}
-        public Cell DrawCell {get;}
+       // public Cell DrawCell {get;}
         private Terrain(string name, char glyph, Coord pos, Color? fg = null, Color? bg = null, bool isWalkable = true, bool isTransparent = true)
             : base(pos, 0, null, true, isWalkable, isTransparent) {
                 Name = name;
                 Glyph = glyph;
                 var FG = fg ?? Color.Transparent;
                 var BG = bg ?? Color.Transparent;
-                DrawCell = new Cell(FG, BG, Glyph);
+                this.AddComponent(new DrawComponent(glyph, FG, BG));
         }
 
         public static Terrain Floor(Coord pos, Color floorColor) {

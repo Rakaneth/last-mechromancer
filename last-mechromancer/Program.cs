@@ -4,24 +4,34 @@ using Console = SadConsole.Console;
 using last_mechromancer.Entity;
 using last_mechromancer.Entity.Factories;
 using last_mechromancer.UI;
+using last_mechromancer.Mapping;
+using Microsoft.Xna.Framework;
+using Game = SadConsole.Game;
 
 namespace last_mechromancer {
     public static class Program {
         static void Main() {
-            Game.Create(80, 25);
+            Game.Create(100, 40);
             Game.OnInitialize = Init;
             Game.Instance.Run();
             Game.Instance.Dispose();
         }
 
         static void Init() {
-            var console = new Console(80, 25);
+            var map = MapBuilder.Build(MapType.DUNGEON, 100, 100, "test", Color.SlateGray, Color.White);
+            var console = new MapConsole(map);
+            console.IsVisible = true;
+            console.IsFocused = true;
+            var player = new PlayerFactory()
+                .SetName("Player")
+                .Build();
+            map.AddEntity(player);
+            console.Focus = player;
+            player.Position = (25, 25);
             //console.FillWithRandomGarbage();
             Global.CurrentScreen = console;
-            var msgs = new MessageConsole(20, 15);
-            for (int i=0; i<20; i++)
-                MessageBus.Instance.Send(new GameLogMessage($"Message {Utils.Decorate(i.ToString(), "121,107,91")}"));
-            console.Children.Add(msgs);
+            
+
         }
     }
 }
